@@ -1,9 +1,12 @@
-var mysql      = require('mysql');
+var mysql  = require('mysql');
+import config from '../config'
+
+
 var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'test'
+    host     : config.DB_HOST,
+    user     : config.DB_USER,
+    password : config.DB_PASS,
+    database : config.DB_NAME
 });
 
 export const db = () => {

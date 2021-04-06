@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 import {db} from './db'
 
+
 export const jobberman = async (number=1) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
