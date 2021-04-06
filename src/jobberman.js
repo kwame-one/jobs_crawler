@@ -14,7 +14,7 @@ export const jobberman = async (number=1) => {
 
         let items = [];
 
-        articles.forEach((article, index) => {
+        articles.forEach((article) => {
          
             items.push({
                 'role': article.querySelector('a h3').innerText,
@@ -34,9 +34,9 @@ export const jobberman = async (number=1) => {
     let connection = await db();
   
     jobs.forEach(async (job) => {
-        connection.query('SELECT id FROM `news` WHERE `link` = ?', [job.link], async(err, results, fields) => {
+        connection.query('SELECT id FROM `jobs` WHERE `link` = ?', [job.link], async(err, results, fields) => {
             if(results.length == 0) {
-                await connection.query('INSERT INTO news SET ?', job);
+                await connection.query('INSERT INTO jobs SET ?', job);
             }
         }); 
     })
